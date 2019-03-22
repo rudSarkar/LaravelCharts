@@ -1,4 +1,5 @@
 # Laravel Chart Project
+<p align="center"><img src="https://i.ibb.co/hmQF0S9/charts.png"/></p>
 
 
 ### Package used
