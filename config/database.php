@@ -1,5 +1,8 @@
 <?php
 
+// Heroku DB RL
+$heroku_db_url = parse_url(env('DATABASE_URL', "postgres://auspaoxyyzkhix:8a9483fca3ce1061ed617ed5fb6be90dd25f526f6d087af5a198494ab06325bf@ec2-54-221-212-126.compute-1.amazonaws.com:5432/d2s7nl4pfmccgu"));
+
 return [
 
     /*
@@ -30,7 +33,6 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-    $heroku_db_url = parse_url(env('DATABASE_URL', "postgres://auspaoxyyzkhix:8a9483fca3ce1061ed617ed5fb6be90dd25f526f6d087af5a198494ab06325bf@ec2-54-221-212-126.compute-1.amazonaws.com:5432/d2s7nl4pfmccgu"));
     'connections' => [
 
         'sqlite' => [
