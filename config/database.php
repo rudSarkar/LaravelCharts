@@ -14,7 +14,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
-
+    
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -30,7 +30,7 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-
+    $heroku_db_url = parse_url(env('DATABASE_URL', "postgres://auspaoxyyzkhix:8a9483fca3ce1061ed617ed5fb6be90dd25f526f6d087af5a198494ab06325bf@ec2-54-221-212-126.compute-1.amazonaws.com:5432/d2s7nl4pfmccgu"));
     'connections' => [
 
         'sqlite' => [
@@ -59,13 +59,13 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+        'pg-heroku' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => $heroku_db_url['host'],
+            'port' => '5432',
+            'database' => substr($heroku_db_url['path'], 1),
+            'username' => $heroku_db_url['user'],
+            'password' => $heroku_db_url['pass'],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
